@@ -1,1 +1,2 @@
-# AswadMirza_3D_Game_Development_Assignment1
+# AswadMirza_3D_GameDevelopment_Exercise2
+Exercise 2 for PROG38634
