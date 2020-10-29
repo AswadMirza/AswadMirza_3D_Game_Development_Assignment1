@@ -80,26 +80,35 @@ public class CharacterAnimation : MonoBehaviour
         }
 
         // logic for if the player is holding the right mouse button
-        if (Input.GetMouseButton(1)) {
+        if (Input.GetKey(KeyCode.Alpha7))
+        {
             // this means the player is holding the pistol
-            if (_weaponController.getSelectedWeapon().name.Equals(_weaponController.pistol))
+            if (_weaponController.getSelectedWeapon().name.Equals(_weaponController.pistol.name))
             {
                 anim.SetBool("Pistol", true);
+                Debug.Log("aiming with pistol");
             }
-            else {
+            else
+            {
                 anim.SetBool("Pistol", false);
+
             }
 
             // this means the player is holding the smg
-            if (_weaponController.getSelectedWeapon().name.Equals(_weaponController.smg))
+            if (_weaponController.getSelectedWeapon().name.Equals(_weaponController.smg.name))
             {
                 anim.SetBool("Rifle", true);
+                Debug.Log("aiming with rifle");
             }
             else
             {
                 anim.SetBool("Rifle", false);
             }
 
+        }
+        else {
+            anim.SetBool("Pistol", false);
+            anim.SetBool("Rifle", false);
         }
 
     }
