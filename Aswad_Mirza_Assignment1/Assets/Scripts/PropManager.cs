@@ -12,6 +12,7 @@ public class PropManager : MonoBehaviour
     public Vector3 rotationOffset;
     public bool destroyTrigger = true;
 
+  
     void OnTriggerEnter(Collider collision)
     {
         bool addPropCondition = targetBone.IsChildOf(collision.transform) & !AlreadyHalreadyHasChildObject();

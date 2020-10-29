@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class CharacterAnimation : MonoBehaviour
 {
-    Animator anim;
+
+    private WeaponController _weaponController;
+  Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        
+        _weaponController = gameObject.GetComponent<WeaponController>();
     }
 
     // Update is called once per frame
@@ -75,6 +77,29 @@ public class CharacterAnimation : MonoBehaviour
         else
         {
             anim.SetBool("Swing", false);
+        }
+
+        // logic for if the player is holding the right mouse button
+        if (Input.GetMouseButton(1)) {
+            // this means the player is holding the pistol
+            if (_weaponController.getSelectedWeapon().name.Equals(_weaponController.pistol))
+            {
+                anim.SetBool("Pistol", true);
+            }
+            else {
+                anim.SetBool("Pistol", false);
+            }
+
+            // this means the player is holding the smg
+            if (_weaponController.getSelectedWeapon().name.Equals(_weaponController.smg))
+            {
+                anim.SetBool("Rifle", true);
+            }
+            else
+            {
+                anim.SetBool("Rifle", false);
+            }
+
         }
 
     }
