@@ -80,7 +80,7 @@ public class CharacterAnimation : MonoBehaviour
         }
 
         // logic for if the player is holding the right mouse button
-        if (Input.GetKey(KeyCode.Alpha7))
+        if (Input.GetMouseButton(1))
         {
             // this means the player is holding the pistol
             if (_weaponController.getSelectedWeapon().name.Equals(_weaponController.pistol.name))
