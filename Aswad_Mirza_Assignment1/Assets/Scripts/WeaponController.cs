@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-
+    //Animator
+    Animator anim;
     // Gun Objects
     public GameObject pistol;
     public GameObject smg;
@@ -21,14 +22,27 @@ public class WeaponController : MonoBehaviour
     public Vector3 hipPositionOffset;
     public Vector3 hipRotationOffset;
 
+    public Vector3 bulletForce = new Vector3(0, 100, 5000);
+
+    // for finding out which weapon is holstered and selected
     GameObject selectedWeapon;
     GameObject holsteredWeapon;
 
+    // bullet prefab
+    public GameObject bulletPrefab;
+
+    // MouseAim variable for setting the weapon for this script
     MouseAim mouseAim;
+
+    float pistolBulletDelay = 1f;
+    float smgBulletDelay = 0.1f;
+
+
     // Start is called before the first frame update
     void Start()
     {
         mouseAim = gameObject.GetComponent<MouseAim>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -43,6 +57,15 @@ public class WeaponController : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") < 0f) {
             swapWeapons();
             Debug.Log("weapons are swapped");
+        }
+        // if we are holding the left mouse button, and we are in the rifle animation
+        if (Input.GetMouseButton(0) && anim.GetBool("Rifle")) {
+            StartCoroutine(fireBullet(smgBulletDelay));
+        }
+
+        //if we are in the pistol animation 
+        if (Input.GetMouseButtonDown(0) && anim.GetBool("Pistol")) {
+            StartCoroutine(fireBullet(pistolBulletDelay));
         }
     }
     //problem need to set the gameobjects to the weapons already inside of the player, and not the ones in the prefab
@@ -191,6 +214,28 @@ public class WeaponController : MonoBehaviour
         findHolsteredWeapon();
         return holsteredWeapon;
     }
+
+    IEnumerator fireBullet(float delay) {
+        yield return new WaitForSeconds(delay);
+        GameObject bulletInstance = Instantiate(bulletPrefab, selectedWeapon.transform.position, selectedWeapon.transform.rotation);
+        bulletInstance.name = bulletPrefab.name;
+        bulletInstance.transform.parent = selectedWeapon.transform;
+
+
+        Vector3 direction = selectedWeapon.transform.rotation.eulerAngles;
+        bulletInstance.transform.rotation = Quaternion.Euler(direction);
+
+        bulletInstance.transform.parent = null;
+
+        bulletInstance.GetComponent<Rigidbody>().AddRelativeForce(bulletForce);
+    }
+
+
+    //changes rotation A to Rotation B
+    void SwapRotations(Transform weapon, Quaternion rotationB) {
+    }
+    
+
 
 
 }
