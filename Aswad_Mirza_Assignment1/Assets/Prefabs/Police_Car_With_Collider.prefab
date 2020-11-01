@@ -248,9 +248,10 @@ GameObject:
   - component: {fileID: 4712380453128064885}
   - component: {fileID: 4716659048996612121}
   - component: {fileID: 1646981449300861}
+  - component: {fileID: 42255754}
   m_Layer: 0
   m_Name: Police_Car_With_Collider
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,6 +302,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Destination: {x: 20, y: 0, z: -3}
   Speed: 15
+--- !u!95 &42255754
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715595922937256901}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 906f702d23e41b449a034dd9c423871f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4716036293649046355
 GameObject:
   m_ObjectHideFlags: 0

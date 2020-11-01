@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 709454529196747202}
   m_Layer: 0
   m_Name: Civilian_Bat
-  m_TagString: Untagged
+  m_TagString: Civillian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ Animator:
   m_GameObject: {fileID: 7935205675164980781}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: eb062aa776e44954d94c4c2f76ebc148, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dcec99d16a661694caf1f66a181568f3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

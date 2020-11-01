@@ -37,6 +37,10 @@ public class WeaponController : MonoBehaviour
     float pistolBulletDelay = 1f;
     float smgBulletDelay = 0.1f;
 
+    // vector 3s to represent the roation offset the guns need to have while aiming
+    public Vector3 pistolAimingRotationOffset;
+    public Vector3 smgAimingRotationOffset;
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +71,19 @@ public class WeaponController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && anim.GetBool("Pistol")) {
             StartCoroutine(fireBullet(pistolBulletDelay));
         }
+
+        if (anim.GetBool("Pistol"))
+        {
+            selectedWeapon.transform.localEulerAngles = pistolAimingRotationOffset;
+        }
+        else if (anim.GetBool("Rifle"))
+        {
+            selectedWeapon.transform.localEulerAngles = smgAimingRotationOffset;
+        }
+        else if(getSelectedWeapon()!=null){
+            selectedWeapon.transform.localEulerAngles = handRotationOffset;
+        }
+
     }
     //problem need to set the gameobjects to the weapons already inside of the player, and not the ones in the prefab
     void swapWeapons() {
