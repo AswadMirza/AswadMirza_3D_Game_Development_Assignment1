@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Aswad Mirza 991445135
 public class Pickup : MonoBehaviour
 {
     // Start is called before the first frame update

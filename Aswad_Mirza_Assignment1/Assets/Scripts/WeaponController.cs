@@ -2,6 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Aswad Mirza 991445135 
+
+//Code based  on the example from  the textbook "Unity 2018 Cookbook - Third Edition" - Chapter 10  and from week 5
+
+
+/*
+ APA rEFERENCE:
+Smith, M., & Safari, an O'Reilly Media Company. (2018). Unity 2018 cookbook - third edition (3rd ed.) Packt Publishing.
+ 
+ */
+
 public class WeaponController : MonoBehaviour
 {
     //Animator
@@ -34,8 +46,8 @@ public class WeaponController : MonoBehaviour
     // MouseAim variable for setting the weapon for this script
     MouseAim mouseAim;
 
-    float pistolBulletDelay = 1f;
-    float smgBulletDelay = 0.1f;
+    public float pistolBulletDelay = 1f;
+    public float smgBulletDelay = 0.1f;
 
     // vector 3s to represent the roation offset the guns need to have while aiming
     public Vector3 pistolAimingRotationOffset;
