@@ -19,6 +19,10 @@ public class MovementOnPoints : MonoBehaviour
     //used to calculate how fast the gameobject moves
     public float Speed;
     // Start is called before the first frame update
+
+    //AudioSource
+    AudioSource _source;
+
     void Start()
     {
         // the first point it moves back and forth to is set here
@@ -26,6 +30,8 @@ public class MovementOnPoints : MonoBehaviour
         _startPosition = transform.position;
         //destination has to be set
         _destination = Destination;
+
+        _source = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,6 +57,10 @@ public class MovementOnPoints : MonoBehaviour
         transform.position = newPosition;
 
          CheckPoints();
+
+        if (!_source.isPlaying) {
+            _source.Play();
+        }
 
     }
     // calculates the direction of how to go from our source to our destination
